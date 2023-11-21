@@ -6,7 +6,8 @@ RUN apk update
 
 # パッケージをインストールするコマンドを実行
 # M1 Macではnokogiriのビルドにbuild-baseが必要
-RUN apk add g++ make mysql-dev tzdata build-base
+# RUN apk add g++ make mysql-dev tzdata build-base
+RUN apk add g++ make mysql-dev tzdata gcompat
 
 # コンテナを起動した時の作業ディレクトリを/appにする
 WORKDIR /app
@@ -15,7 +16,7 @@ WORKDIR /app
 COPY Gemfile .
 
 # バイナリのgemではなく、ソースコードからgemをビルドする設定
-RUN bundle config set force_ruby_platform true
+# RUN bundle config set force_ruby_platform true
 
 # bundle installでGemfileに記述されているgemをインストール
 RUN bundle install

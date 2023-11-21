@@ -5,8 +5,6 @@ FROM ruby:3.2.2-alpine
 RUN apk update
 
 # パッケージをインストールするコマンドを実行
-# M1 Macではnokogiriのビルドにbuild-baseが必要
-# RUN apk add g++ make mysql-dev tzdata build-base
 RUN apk add g++ make mysql-dev tzdata gcompat
 
 # コンテナを起動した時の作業ディレクトリを/appにする
@@ -14,9 +12,11 @@ WORKDIR /app
 
 # PC上のGemfile を .（/app）にコピー
 COPY Gemfile .
+COPY Gemfile.lock .
+COPY vendor ./vendor
 
-# バイナリのgemではなく、ソースコードからgemをビルドする設定
-# RUN bundle config set force_ruby_platform true
-
+# gemの保存先をvendor/bundleに切り替える設定
+# 通常は不要だが、ダウンロードしたgemをgitで管理するために設定している
+RUN bundle config --local path vendor/bundle
 # bundle installでGemfileに記述されているgemをインストール
 RUN bundle install

@@ -4,18 +4,18 @@
     <a href="/boards" class="btn btn-outline-dark">掲示板一覧</a>
   </div>
 </div>
-<form>
+<%= form_with model: @board do |form| %>
   <div class="mb-3">
-    <label for="name">名前</label>
-    <input id="name" class="form-control">
+    <%= form.label :author_name, '名前' %>
+    <%= form.text_field :author_name, class: 'form-control' %>
   </div>
   <div class="mb-3">
-    <label for="title">タイトル</label>
-    <input id="title" class="form-control">
+    <%= form.label :title, 'タイトル' %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
   <div class="mb-3">
-    <label for="body">本文</label>
-    <textarea id="body" class="form-control" rows="10"></textarea>
+    <%= form.label :body, '本文' %>
+    <%= form.text_field :body, class: 'form-control', row: 10 %>
   </div>
-  <button type="submit" class="btn btn-primary">保存</button>
-</form>
+  <%= form.submit '保存', class: 'btn btn-primary' %>
+<% end %>

@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    Board.create(board_params)
+    redirect_to = Board.create(board_params)
   end
 
   def show
@@ -24,6 +24,12 @@ class BoardsController < ApplicationController
     board.update(board_params)
 
     redirect_to board # /boards/:idへリダイレクトされる
+  end
+
+  def destroy
+    Board.find(params[:id]).delete
+
+    redirect_to boards_path
   end
 
   private

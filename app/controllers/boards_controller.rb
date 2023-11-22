@@ -9,7 +9,9 @@ class BoardsController < ApplicationController
   end
 
   def create
-    redirect_to = Board.create(board_params)
+    board = Board.create(board_params)
+    flash[:notice] = "「#{board.title}」の掲示板を作成しました"
+    redirect_to board
   end
 
   def show

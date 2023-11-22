@@ -51,6 +51,7 @@ gem "bootsnap", "1.16.0", require: false
 gem "bootstrap", "5.3.1"
 gem "sassc-rails", "2.1.2"
 gem "mini_racer", "0.8.0"
+gem "kaminari"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

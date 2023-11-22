@@ -27,9 +27,9 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    Board.find(params[:id]).delete
+    @board.delete
 
-    redirect_to boards_path
+    redirect_to boards_path, flash: {notice: "「#{@board[:title]}」の掲示板が削除されました"}
   end
 
   private

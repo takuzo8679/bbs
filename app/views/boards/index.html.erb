@@ -4,6 +4,11 @@
     <%= link_to '新規作成', new_board_path, class: 'btn btn-outline-dark' %>
   </div>
 </div>
+
+<% if flash[:notice] %>
+  <div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+
 <table class="table table-h over boards__table">
   <thead class="table-dark">
     <tr>

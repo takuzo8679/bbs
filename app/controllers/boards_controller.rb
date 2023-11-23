@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
       redirect_to board
     else
       redirect_to new_board_path, flash: {
-        board: board,
+        board:,
         error_messages: board.errors.full_messages
       }
     end
@@ -25,8 +25,7 @@ class BoardsController < ApplicationController
     @comment = Comment.new(board_id: @board.id)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @board.update(board_params)
@@ -37,7 +36,7 @@ class BoardsController < ApplicationController
   def destroy
     @board.delete
 
-    redirect_to boards_path, flash: {notice: "「#{@board[:title]}」の掲示板が削除されました"}
+    redirect_to boards_path, flash: { notice: "「#{@board[:title]}」の掲示板が削除されました" }
   end
 
   private

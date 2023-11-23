@@ -14,12 +14,12 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:id])
     comment.delete
-    redirect_to comment.board, flash: { notice: 'コメントが削除されました'}
+    redirect_to comment.board, flash: { notice: 'コメントが削除されました' }
   end
 end
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:board_id, :name, :comment)
-  end
+def comment_params
+  params.require(:comment).permit(:board_id, :name, :comment)
+end

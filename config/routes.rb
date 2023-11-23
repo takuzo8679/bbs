@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :boards
-  resources :comments, only: %i[create, destroy]
+  resources :comments, only: %i[create destroy]
 end

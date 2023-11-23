@@ -12,4 +12,10 @@
 <%# <%= render partial: 'board', locals: { board: @board } %\> %>
 <%# <%= render partial: 'board', object: @board %\> %>
 <%= render @board %>
+
+<div class='p-comment__list'>
+  <div class='p-comment__listTitle'>コメント</div>
+  <%= render @board.comments %> <%# コメントの数だけレンダリングされる %>
+</div>
+
 <%= render partial: 'comment_form', locals: { comment: @comment } %>

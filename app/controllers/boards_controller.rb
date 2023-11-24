@@ -28,9 +28,15 @@ class BoardsController < ApplicationController
   def edit; end
 
   def update
-    @board.update(board_params)
-
-    redirect_to @board # /boards/:idへリダイレクトされる
+    if @board.update(board_params)
+      redirect_to @board, flash: {
+        notice: "「#{@board.title}」の掲示板を編集しました"
+      }
+    else
+      flash[:board]
+      flash[:error_messages] = @board.errors.full_messages
+      redirect_back fallback_location: @board
+    end
   end
 
   def destroy

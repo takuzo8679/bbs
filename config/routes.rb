@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
+  root 'home#index' # 実際にページはないがヘッダーを作る都合で作成
   resources :boards
   resources :comments, only: %i[create destroy]
 end

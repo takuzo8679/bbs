@@ -1,24 +1,20 @@
-# README
+# Bulletin Board Site
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a bulletin board site built using Ruby on Rails.
 
-Things you may want to cover:
+## Main features
 
-* Ruby version
+- Creating a bulletin board
+- Post a comment on the bulletin board
+- User registration function
+- Bulletin board tagging
+- Search by tag
 
-* System dependencies
+## Environment
 
-* Configuration
+- Ruby 3.2.2
+- Rails 7.0.7
 
-* Database creation
+## supplement
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [Reference by creation](https://www.udemy.com/course/rails-kj/)

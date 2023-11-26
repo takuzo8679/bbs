@@ -61,6 +61,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "rails-flog", require: 'flog'
   gem 'rspec-rails', '~> 6.1.0'
+  gem 'rails-controller-testing'
 end
 
 group :development do
